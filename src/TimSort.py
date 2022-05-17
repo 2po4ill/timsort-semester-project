@@ -155,8 +155,8 @@ if __name__ == "__main__":
         arr = []
         for i in range(1, n):
             arr.append(randint(-100000, 100000))
-
+        arr1 = arr.copy()
         timetim(arr)
-        timemerge(arr)
+        timemerge(arr1)
 
         n += 1000
