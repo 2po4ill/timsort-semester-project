@@ -6,6 +6,7 @@ seed(2)
 
 MIN_MERGE = 32
 
+
 def calc_min_run(n):
     r = 0
     while n >= MIN_MERGE:
@@ -15,6 +16,8 @@ def calc_min_run(n):
 
 # This function sorts array from left index to
 # to right index which is of size atmost RUN
+
+
 def insertion_sort(arr, left, right):
     for i in range(left + 1, right + 1):
         j = i
@@ -97,34 +100,63 @@ def tim_sort(arr):
         size = 2 * size
 
 
-# Driver program to test above function
-if __name__ == "__main__":
-    arr = []
-    for i in range(1, 1001):
-        arr.append(randint(-1000, 1000))
+def mergesort(arr):
+    if len(arr) > 1:
+        middle = len(arr) // 2
+        left = arr[:middle]
+        right = arr[middle:]
+        mergesort(left)
+        mergesort(right)
 
-    print("Given Array is")
-    a = 0
-    for i in arr:
-        if a == 19:
-            print(i)
-            a = 0
-        else:
-            print(i, end=' ')
-            a += 1
+        i = j = k = 0
 
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                arr[k] = left[i]
+                i += 1
+            else:
+                arr[k] = right[j]
+                j += 1
+            k += 1
+
+        while i < len(left):
+            arr[k] = left[i]
+            i += 1
+            k += 1
+
+        while j < len(right):
+            arr[k] = right[j]
+            j += 1
+            k += 1
+
+
+def timetim(arr):
     start_time = time.time()
     # Function Call
     tim_sort(arr)
 
-    print("--- %s seconds ---" % (time.time() - start_time))
+    print("%s seconds" % (time.time() - start_time))
 
-    print("After Sorting Array is")
-    a = 0
-    for i in arr:
-        if a == 19:
-            print(i)
-            a = 0
-        else:
-            print(i, end=' ')
-            a += 1
+
+def timemerge(arr):
+
+
+    start_time = time.time()
+    # Function Call
+    mergesort(arr)
+
+    print("%s seconds" % (time.time() - start_time))
+
+
+# Driver program to test above function
+if __name__ == "__main__":
+    n = 1000
+    while n != 200000:
+        arr = []
+        for i in range(1, n):
+            arr.append(randint(-100000, 100000))
+
+        timetim(arr)
+        timemerge(arr)
+
+        n += 1000
