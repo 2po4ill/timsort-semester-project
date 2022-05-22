@@ -1,8 +1,8 @@
 import time
 
 from random import randint, seed
-
 seed(2)
+
 
 def merge(arr):
     if len(arr) > 1:
@@ -34,32 +34,34 @@ def merge(arr):
             k += 1
 
 
-arr = []
-for i in range(1, 1001):
-    arr.append(randint(-1000, 1000))
+if __name__ == "__main__":
+    mas = []
+    for i in range(1, 21):
+        mas.append(randint(-100000, 100000))
+    mas.sort()
 
-print("Given Array is")
-a = 0
-for i in arr:
-    if a == 19:
-        print(i)
-        a = 0
-    else:
-        print(i, end=' ')
-        a += 1
+    print("Given Array is")
+    a = 0
+    for i in mas:
+        if a == 4:
+            print(i)
+            a = 0
+        else:
+            print(i, end=' ')
+            a += 1
 
-start_time = time.time()
-# Function Call
-merge(arr)
+    start_time = time.time()
+    # Function Call
+    merge(mas)
 
-print("--- %s seconds ---" % (time.time() - start_time))
+    print("--- %s seconds ---" % (time.time() - start_time))
 
-print("After Sorting Array is")
-a = 0
-for i in arr:
-    if a == 19:
-        print(i)
-        a = 0
-    else:
-        print(i, end=' ')
-        a += 1
+    print("After Sorting Array is")
+    a = 0
+    for i in mas:
+        if a == 4:
+            print(i)
+            a = 0
+        else:
+            print(i, end=' ')
+            a += 1
