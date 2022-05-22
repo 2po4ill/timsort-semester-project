@@ -1,10 +1,10 @@
 import time
 
 from random import randint, seed
-
 seed(2)
 
 MIN_MERGE = 32
+
 
 def calc_min_run(n):
     r = 0
@@ -13,8 +13,8 @@ def calc_min_run(n):
         n >>= 1
     return n + r
 
-# This function sorts array from left index to
-# to right index which is of size atmost RUN
+
+# This function sorts array from left index to right index which is of size atmost RUN
 def insertion_sort(arr, left, right):
     for i in range(left + 1, right + 1):
         j = i
@@ -42,11 +42,9 @@ def merge(arr, l, m, r):
         if left[i] <= right[j]:
             arr[k] = left[i]
             i += 1
-
         else:
             arr[k] = right[j]
             j += 1
-
         k += 1
 
     # Copy remaining elements of left, if any
@@ -93,20 +91,20 @@ def tim_sort(arr):
             # arr[mid+1....right]
             if mid < right:
                 merge(arr, left, mid, right)
-
         size = 2 * size
 
 
 # Driver program to test above function
 if __name__ == "__main__":
-    arr = []
-    for i in range(1, 1001):
-        arr.append(randint(-1000, 1000))
+    mas = []
+    for i in range(1, 21):
+        mas.append(randint(-100000, 100000))
+    mas.sort()
 
     print("Given Array is")
     a = 0
-    for i in arr:
-        if a == 19:
+    for i in mas:
+        if a == 4:
             print(i)
             a = 0
         else:
@@ -115,14 +113,14 @@ if __name__ == "__main__":
 
     start_time = time.time()
     # Function Call
-    tim_sort(arr)
+    tim_sort(mas)
 
     print("--- %s seconds ---" % (time.time() - start_time))
 
     print("After Sorting Array is")
     a = 0
-    for i in arr:
-        if a == 19:
+    for i in mas:
+        if a == 4:
             print(i)
             a = 0
         else:
